@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dycwfbeelvum"]
+
+[ext_resource type="Script" uid="uid://co1d5oy5s44kh" path="res://Scripts/upgrade_screen.gd" id="1_g1a74"]
+[ext_resource type="PackedScene" uid="uid://burx3bht7k080" path="res://Scenes/upgrade_card.tscn" id="2_g043t"]
+
+[node name="UpgradeScreen" type="Control" unique_id=58095396]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g1a74")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1354134593]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -17.5
+offset_right = 75.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1192065279]
+layout_mode = 2
+
+[node name="UITitle" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1181601078]
+layout_mode = 2
+text = "Choose an Upgrade"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1393090598]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="UpgradeCard1" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1225554866 instance=ExtResource("2_g043t")]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+
+[node name="UpgradeCard2" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1855797248 instance=ExtResource("2_g043t")]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+
+[node name="UpgradeCard3" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1771703687 instance=ExtResource("2_g043t")]
+custom_minimum_size = Vector2(100, 120)
+layout_mode = 2
+size_flags_horizontal = 3

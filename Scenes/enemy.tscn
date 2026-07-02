@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://hcqr7kri8smf"]
+
+[ext_resource type="Script" uid="uid://doq5a5vylnb7r" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://b0ps6bhjv2t3a" path="res://icon.svg" id="1_hghv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(26, 26)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1f0kj"]
+radius = 24.020824
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1451423591 groups=["Enemy"]]
+motion_mode = 1
+script = ExtResource("1_1f0kj")
+
+[node name="EnemySprite" type="Sprite2D" parent="." unique_id=998570199]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_hghv2")
+
+[node name="EnemyCollisionShape" type="CollisionShape2D" parent="." unique_id=934976018]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="EnemyHealthbar" type="ProgressBar" parent="." unique_id=957094910]
+offset_left = -13.0
+offset_top = -18.0
+offset_right = 13.0
+offset_bottom = -14.0
+value = 50.0
+show_percentage = false
+
+[node name="EnemyAttackRange" type="Area2D" parent="." unique_id=1850583371]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyAttackRange" unique_id=1584260745]
+shape = SubResource("CircleShape2D_1f0kj")
+
+[connection signal="body_entered" from="EnemyAttackRange" to="." method="_on_enemy_attack_range_body_entered"]
+[connection signal="body_exited" from="EnemyAttackRange" to="." method="_on_enemy_attack_range_body_exited"]

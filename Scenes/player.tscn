@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://r5onv65jt3j1"]
+
+[ext_resource type="Script" uid="uid://biq2gh6mt1h2w" path="res://Scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://b0ps6bhjv2t3a" path="res://icon.svg" id="1_v0iea"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(38, 38)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 80.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1653672978 groups=["Player"]]
+motion_mode = 1
+script = ExtResource("1_cvnsp")
+
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=1662639923]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_v0iea")
+
+[node name="PlayerCollisionShape" type="CollisionShape2D" parent="." unique_id=1613187756]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="PlayerAutoShootArea" type="Area2D" parent="." unique_id=160124040]
+
+[node name="PlayerAutoShootCollisionShape" type="CollisionShape2D" parent="PlayerAutoShootArea" unique_id=697383448]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="PlayerHealthBar" type="ProgressBar" parent="." unique_id=676493174]
+offset_left = -18.0
+offset_top = -25.0
+offset_right = 18.0
+offset_bottom = -20.0
+value = 50.0
+show_percentage = false
+
+[connection signal="body_entered" from="PlayerAutoShootArea" to="." method="_on_player_auto_shoot_area_body_entered"]
+[connection signal="body_exited" from="PlayerAutoShootArea" to="." method="_on_player_auto_shoot_area_body_exited"]

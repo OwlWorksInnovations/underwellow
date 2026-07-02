@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://burx3bht7k080"]
+
+[ext_resource type="Script" uid="uid://blrr1nyum1gqt" path="res://Scripts/upgrade_card.gd" id="1_7wruj"]
+
+[node name="UpgradeCard" type="Button" unique_id=1225554866]
+custom_minimum_size = Vector2(100, 120)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7wruj")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=440188963]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=188457674]
+layout_mode = 2
+
+[node name="UpgradeTitle" type="Label" parent="MarginContainer/VBoxContainer" unique_id=330399181]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+
+[node name="UpgradeDescription" type="Label" parent="MarginContainer/VBoxContainer" unique_id=460668216]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
+
+[node name="UpgradeStats" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1028463949]
+layout_mode = 2
+theme_override_font_sizes/font_size = 7
