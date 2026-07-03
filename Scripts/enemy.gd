@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal died()
+
 @export var enemy_health: float = 30.0
 @export var enemy_max_health: float = 30.0
 @export var enemy_attack_damage: float = 10.0
@@ -25,6 +27,8 @@ func die() -> void:
 	get_tree().current_scene.add_child(xp_orb)
 	xp_orb.global_position = global_position
 	xp_orb.orb_xp_value = enemy_max_health / 10
+	
+	died.emit()
 	queue_free()
 	
 func attack(body: Node2D) -> void:
